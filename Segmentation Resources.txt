@@ -6,3 +6,5 @@ MONAI Tutorials + SSL etc - https://github.com/toufiqmusah/MONAI-tutorials/tree/
 nnUNET + Pretained + Downloader etc - https://github.com/toufiqmusah/brain-tumour-segmentation-BRaTS2023
 
 FastAI - https://walkwithfastai.com/Segmentation
+
+nnUNETv2 - https://github.com/MIC-DKFZ/nnUNet/tree/masters
