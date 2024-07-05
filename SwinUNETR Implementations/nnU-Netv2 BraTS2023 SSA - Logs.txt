@@ -1,0 +1,96 @@
+
+#######################################################################
+Please cite the following paper when using nnU-Net:
+Isensee, F., Jaeger, P. F., Kohl, S. A., Petersen, J., & Maier-Hein, K. H. (2021). nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation. Nature methods, 18(2), 203-211.
+#######################################################################
+ 
+2024-07-05 02:00:58.236882: Using torch.compile... 
+2024-07-05 02:00:59.488377: do_dummy_2d_data_aug: False 
+2024-07-05 02:00:59.489807: Using splits from existing split file: /kaggle/working/nnUNet_preprocessed/Dataset2023/splits_final.json 
+2024-07-05 02:00:59.490136: The split file contains 5 splits. 
+2024-07-05 02:00:59.490232: Desired fold for training: 3 
+2024-07-05 02:00:59.490316: This split has 48 training and 12 validation cases. 
+
+This is the configuration used by this training:
+Configuration name: 3d_fullres
+ {'data_identifier': 'nnUNetPlans_3d_fullres', 'preprocessor_name': 'DefaultPreprocessor', 'batch_size': 2, 'patch_size': [128, 160, 112], 'median_image_size_in_voxels': [139.0, 175.0, 137.5], 'spacing': [1.0, 1.0, 1.0], 'normalization_schemes': ['ZScoreNormalization', 'ZScoreNormalization', 'ZScoreNormalization', 'ZScoreNormalization'], 'use_mask_for_norm': [True, True, True, True], 'resampling_fn_data': 'resample_data_or_seg_to_shape', 'resampling_fn_seg': 'resample_data_or_seg_to_shape', 'resampling_fn_data_kwargs': {'is_seg': False, 'order': 3, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_seg_kwargs': {'is_seg': True, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_probabilities': 'resample_data_or_seg_to_shape', 'resampling_fn_probabilities_kwargs': {'is_seg': False, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'architecture': {'network_class_name': 'dynamic_network_architectures.architectures.unet.ResidualEncoderUNet', 'arch_kwargs': {'n_stages': 6, 'features_per_stage': [32, 64, 128, 256, 320, 320], 'conv_op': 'torch.nn.modules.conv.Conv3d', 'kernel_sizes': [[3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3]], 'strides': [[1, 1, 1], [2, 2, 2], [2, 2, 2], [2, 2, 2], [2, 2, 2], [2, 2, 1]], 'n_blocks_per_stage': [1, 3, 4, 6, 6, 6], 'n_conv_per_stage_decoder': [1, 1, 1, 1, 1], 'conv_bias': True, 'norm_op': 'torch.nn.modules.instancenorm.InstanceNorm3d', 'norm_op_kwargs': {'eps': 1e-05, 'affine': True}, 'dropout_op': None, 'dropout_op_kwargs': None, 'nonlin': 'torch.nn.LeakyReLU', 'nonlin_kwargs': {'inplace': True}, 'deep_supervision': True}, '_kw_requires_import': ['conv_op', 'norm_op', 'dropout_op', 'nonlin']}, 'batch_dice': False} 
+ 
+These are the global plan.json settings:
+ {'dataset_name': 'Dataset2023', 'plans_name': 'nnUNetResEncUNetPlans', 'original_median_spacing_after_transp': [1.0, 1.0, 1.0], 'original_median_shape_after_transp': [139, 175, 138], 'image_reader_writer': 'SimpleITKIO', 'transpose_forward': [0, 1, 2], 'transpose_backward': [0, 1, 2], 'experiment_planner_used': 'ResEncUNetPlanner', 'label_manager': 'LabelManager', 'foreground_intensity_properties_per_channel': {'0': {'max': 52226.8046875, 'mean': 1554.203857421875, 'median': 662.0, 'min': 0.0, 'percentile_00_5': 236.0, 'percentile_99_5': 24277.298828125, 'std': 2984.060302734375}, '1': {'max': 10403.19921875, 'mean': 1195.75439453125, 'median': 507.0, 'min': 6.0, 'percentile_00_5': 163.0, 'percentile_99_5': 5990.15771484375, 'std': 1441.9969482421875}, '2': {'max': 13017.0, 'mean': 2041.7530517578125, 'median': 662.0, 'min': 8.0, 'percentile_00_5': 253.0, 'percentile_99_5': 10706.0, 'std': 2929.957275390625}, '3': {'max': 15683.0, 'mean': 1950.59033203125, 'median': 762.0, 'min': 17.0, 'percentile_00_5': 191.0, 'percentile_99_5': 13544.0, 'std': 2712.91943359375}}} 
+ 
+2024-07-05 02:01:11.480456: unpacking dataset... 
+2024-07-05 02:01:44.441510: unpacking done... 
+2024-07-05 02:01:44.443815: Unable to plot network architecture: nnUNet_compile is enabled! 
+2024-07-05 02:01:44.609284:  
+2024-07-05 02:01:44.619482: Epoch 0 
+2024-07-05 02:01:44.619744: Current learning rate: 0.01 
+2024-07-05 02:18:39.547292: train_loss -0.6226 
+2024-07-05 02:18:39.548748: val_loss -0.684 
+2024-07-05 02:18:39.548986: Pseudo dice [0.8921, 0.8543, 0.8824] 
+2024-07-05 02:18:39.549177: Epoch time: 1014.95 s 
+2024-07-05 02:18:39.549323: Yayy! New best EMA pseudo Dice: 0.8763 
+2024-07-05 02:18:42.958439:  
+2024-07-05 02:18:42.958758: Epoch 1 
+2024-07-05 02:18:42.958932: Current learning rate: 0.00818 
+2024-07-05 02:31:01.895460: train_loss -0.7521 
+2024-07-05 02:31:01.895941: val_loss -0.7109 
+2024-07-05 02:31:01.896228: Pseudo dice [0.9184, 0.8752, 0.8709] 
+2024-07-05 02:31:01.896478: Epoch time: 738.94 s 
+2024-07-05 02:31:01.896803: Yayy! New best EMA pseudo Dice: 0.8775 
+2024-07-05 02:31:10.073046:  
+2024-07-05 02:31:10.073251: Epoch 2 
+2024-07-05 02:31:10.073442: Current learning rate: 0.00631 
+2024-07-05 02:44:40.623535: train_loss -0.7942 
+2024-07-05 02:44:40.623949: val_loss -0.6964 
+2024-07-05 02:44:40.624564: Pseudo dice [0.9216, 0.8677, 0.8754] 
+2024-07-05 02:44:40.624966: Epoch time: 810.56 s 
+2024-07-05 02:44:40.625226: Yayy! New best EMA pseudo Dice: 0.8785 
+2024-07-05 02:44:48.757497:  
+2024-07-05 02:44:48.757782: Epoch 3 
+2024-07-05 02:44:48.758074: Current learning rate: 0.00438 
+2024-07-05 02:59:05.529057: train_loss -0.8122 
+2024-07-05 02:59:05.529328: val_loss -0.6934 
+2024-07-05 02:59:05.529541: Pseudo dice [0.9017, 0.874, 0.886] 
+2024-07-05 02:59:05.529699: Epoch time: 856.78 s 
+2024-07-05 02:59:05.529832: Yayy! New best EMA pseudo Dice: 0.8794 
+2024-07-05 02:59:13.905274:  
+2024-07-05 02:59:13.905516: Epoch 4 
+2024-07-05 02:59:13.905715: Current learning rate: 0.00235 
+2024-07-05 03:11:29.389576: train_loss -0.8336 
+2024-07-05 03:11:29.389971: val_loss -0.7452 
+2024-07-05 03:11:29.390219: Pseudo dice [0.9117, 0.8905, 0.8915] 
+2024-07-05 03:11:29.390554: Epoch time: 735.5 s 
+2024-07-05 03:11:29.390803: Yayy! New best EMA pseudo Dice: 0.8813 
+2024-07-05 03:11:40.567137: Training done. 
+2024-07-05 03:11:40.680705: Using splits from existing split file: /kaggle/working/nnUNet_preprocessed/Dataset2023/splits_final.json 
+2024-07-05 03:11:40.681106: The split file contains 5 splits. 
+2024-07-05 03:11:40.681226: Desired fold for training: 3 
+2024-07-05 03:11:40.681321: This split has 48 training and 12 validation cases. 
+2024-07-05 03:11:40.681749: predicting BraTS_0008 
+2024-07-05 03:11:40.683290: BraTS_0008, shape torch.Size([4, 142, 178, 138]), rank 0 
+2024-07-05 03:12:53.030098: predicting BraTS_0010 
+2024-07-05 03:12:53.032787: BraTS_0010, shape torch.Size([4, 137, 182, 135]), rank 0 
+2024-07-05 03:13:01.717264: predicting BraTS_0011 
+2024-07-05 03:13:01.719797: BraTS_0011, shape torch.Size([4, 148, 154, 143]), rank 0 
+2024-07-05 03:13:06.208045: predicting BraTS_0012 
+2024-07-05 03:13:06.210768: BraTS_0012, shape torch.Size([4, 142, 186, 133]), rank 0 
+2024-07-05 03:13:14.957464: predicting BraTS_0014 
+2024-07-05 03:13:14.960076: BraTS_0014, shape torch.Size([4, 143, 172, 134]), rank 0 
+2024-07-05 03:13:23.802578: predicting BraTS_0017 
+2024-07-05 03:13:23.806583: BraTS_0017, shape torch.Size([4, 148, 169, 126]), rank 0 
+2024-07-05 03:13:32.841072: predicting BraTS_0018 
+2024-07-05 03:13:32.843535: BraTS_0018, shape torch.Size([4, 131, 165, 129]), rank 0 
+2024-07-05 03:13:41.978506: predicting BraTS_0019 
+2024-07-05 03:13:41.980805: BraTS_0019, shape torch.Size([4, 139, 174, 132]), rank 0 
+2024-07-05 03:13:51.268019: predicting BraTS_0024 
+2024-07-05 03:13:51.271627: BraTS_0024, shape torch.Size([4, 150, 179, 131]), rank 0 
+2024-07-05 03:14:00.762931: predicting BraTS_0028 
+2024-07-05 03:14:00.765800: BraTS_0028, shape torch.Size([4, 154, 178, 150]), rank 0 
+2024-07-05 03:14:10.544200: predicting BraTS_0039 
+2024-07-05 03:14:10.547459: BraTS_0039, shape torch.Size([4, 138, 182, 141]), rank 0 
+2024-07-05 03:14:20.481889: predicting BraTS_0055 
+2024-07-05 03:14:20.484819: BraTS_0055, shape torch.Size([4, 137, 181, 141]), rank 0 
+2024-07-05 03:14:49.117411: Validation complete 
+2024-07-05 03:14:49.117543: Mean Validation Dice:  0.8404263214800891 
+
+NB: Trained for 49 epochs and finetuned for 5 epochs on the same SSA Data.
